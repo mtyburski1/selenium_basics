@@ -13,7 +13,8 @@ import java.util.Map;
 import java.util.Random;
 
 public class TestBase {
-    protected static WebDriver driver;
+    public static WebDriver driver;
+    public WebDriverWait wait;
 
     @BeforeMethod
     public void setUp(){
@@ -21,6 +22,7 @@ public class TestBase {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
 
